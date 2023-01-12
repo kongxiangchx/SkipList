@@ -3,6 +3,7 @@
 
 ## 简述
 - 实现了SkipList，通过它来完成对KV数据的增删改查。（重载了[]，可以通过skiplist[key]访问并修改KV数据）
+- SkipList（默认key按<排序）重载了构造函数，使得它可以通过函数指针接收cmp函数用来比较key，不想自己写可以调用greater<>()和less<>()。
 - 使用自旋锁保障数据修改时的线程安全，自旋锁的最大尝试次数默认是10。
 - 通过模板编程实现了对字符串、列表、集合、有序集合和哈希表的存储，在C++中分别对应STL中的string、vector、unordered_set、set、unordered_map。
 - SkipList可写入文件，也可从文件中加载，因此需要实现SkipList的序列化和反序列化。本项目使用了仿函数的形式实现了五种基础类型与string之间的相互转换。
