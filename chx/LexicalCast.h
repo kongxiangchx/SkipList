@@ -34,7 +34,8 @@ public:
     std::string operator()(const std::vector<std::string>& v) {
         std::string s = "";
         s.append("[");
-        for(int i = 0; i < v.size(); i++) {
+        int len = v.size();
+        for(int i = 0; i < len; i++) {
             if(i) {
                 s.append(",");
             }

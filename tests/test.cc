@@ -55,7 +55,7 @@ int main() {
     {
         i.join();
     }
-    skipList.dumpFile("store/test.kv");
+    skipList.dumpFile("../store/test.kv");
     std::cout<<skipList.size()<<std::endl;
     std::cout<<"cnt : " <<cnt<<std::endl;
     return 0;
