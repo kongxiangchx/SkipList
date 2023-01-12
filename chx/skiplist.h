@@ -7,7 +7,7 @@
 #include <fstream>
 #include <functional>
 #include <boost/lexical_cast.hpp>
-#include <vector>
+#include <list>
 #include <set>
 #include <unordered_map>
 #include <unordered_set>

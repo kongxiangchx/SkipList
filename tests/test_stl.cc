@@ -1,7 +1,7 @@
 #include "chx/skiplist.h"
 #include <functional>
 #include <cstring>
-#include <vector>
+#include <list>
 #include <unordered_set>
 #include <set>
 #include <unordered_map>
@@ -18,14 +18,14 @@ void test_string() {
     skipList1.displayList();
 }
 
-void test_vector() {
-    chx::SkipList<std::string, std::vector<std::string>> skipList(6);
-	skipList.insertNode("name", std::vector<std::string>{"jack", "rose"});
-    skipList.dumpFile("../store/vector.kv");
+void test_list() {
+    chx::SkipList<std::string, std::list<std::string>> skipList(6);
+	skipList.insertNode("name", std::list<std::string>{"jack", "rose"});
+    skipList.dumpFile("../store/list.kv");
     skipList.displayList();
 
-    chx::SkipList<std::string, std::vector<std::string>> skipList1(6);
-    skipList1.loadFile("../store/vector.kv");
+    chx::SkipList<std::string, std::list<std::string>> skipList1(6);
+    skipList1.loadFile("../store/list.kv");
     skipList1.displayList();
 }
 
@@ -64,7 +64,7 @@ void test_umap() {
 
 int main() {
     test_string();
-    test_vector();
+    test_list();
     test_uset();
     test_set();
     test_umap();

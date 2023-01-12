@@ -12,34 +12,33 @@ public:
 };
 
 template<>
-class LexicalCast<std::string, std::vector<std::string> > {
+class LexicalCast<std::string, std::list<std::string> > {
 public:
-    std::vector<std::string> operator()(const std::string& v) {
+    std::list<std::string> operator()(const std::string& v) {
         std::string s = v.substr(1, v.length()-2);
-        std::vector<std::string> vec;
+        std::list<std::string> ls;
         size_t start = 0;
         size_t pos = 0;
         while((pos = s.find(",", start)) != std::string::npos) {
-            vec.push_back(s.substr(start, pos-start));
+            ls.push_back(s.substr(start, pos-start));
             start = pos+1;
         }
-        vec.push_back(s.substr(start));
-        return vec;
+        ls.push_back(s.substr(start));
+        return ls;
     }
 };
 
 template<>
-class LexicalCast<std::vector<std::string>, std::string> {
+class LexicalCast<std::list<std::string>, std::string> {
 public:
-    std::string operator()(const std::vector<std::string>& v) {
+    std::string operator()(const std::list<std::string>& v) {
         std::string s = "";
         s.append("[");
-        int len = v.size();
-        for(int i = 0; i < len; i++) {
-            if(i) {
+        for(auto it = v.begin(); it != v.end(); ++it) {
+            if(it != v.begin()) {
                 s.append(",");
             }
-            s.append(v[i]);
+            s.append(*it);
         }
         s.append("]");
         return s;
