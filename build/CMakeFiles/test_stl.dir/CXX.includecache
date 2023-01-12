@@ -47,6 +47,14 @@ chx/skiplist.h
 /home/chx/Git/SkipList/tests/chx/skiplist.h
 functional
 -
+cstring
+-
 vector
+-
+unordered_set
+-
+set
+-
+unordered_map
 -
 
