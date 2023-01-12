@@ -23,6 +23,9 @@ SUFFIXES =
 .SUFFIXES: .hpux_make_needs_suffix_list
 
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -111,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named stress_test
+
+# Build rule for target.
+stress_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stress_test
+.PHONY : stress_test
+
+# fast build rule for target.
+stress_test/fast:
+	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/build
+.PHONY : stress_test/fast
+
+#=============================================================================
 # Target rules for targets named test
 
 # Build rule for target.
@@ -135,6 +151,33 @@ test_stl: cmake_check_build_system
 test_stl/fast:
 	$(MAKE) -f CMakeFiles/test_stl.dir/build.make CMakeFiles/test_stl.dir/build
 .PHONY : test_stl/fast
+
+tests/stress_test.o: tests/stress_test.cc.o
+
+.PHONY : tests/stress_test.o
+
+# target to build an object file
+tests/stress_test.cc.o:
+	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/tests/stress_test.cc.o
+.PHONY : tests/stress_test.cc.o
+
+tests/stress_test.i: tests/stress_test.cc.i
+
+.PHONY : tests/stress_test.i
+
+# target to preprocess a source file
+tests/stress_test.cc.i:
+	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/tests/stress_test.cc.i
+.PHONY : tests/stress_test.cc.i
+
+tests/stress_test.s: tests/stress_test.cc.s
+
+.PHONY : tests/stress_test.s
+
+# target to generate assembly for a file
+tests/stress_test.cc.s:
+	$(MAKE) -f CMakeFiles/stress_test.dir/build.make CMakeFiles/stress_test.dir/tests/stress_test.cc.s
+.PHONY : tests/stress_test.cc.s
 
 tests/test.o: tests/test.cc.o
 
@@ -197,9 +240,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... stress_test"
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... test_stl"
+	@echo "... tests/stress_test.o"
+	@echo "... tests/stress_test.i"
+	@echo "... tests/stress_test.s"
 	@echo "... tests/test.o"
 	@echo "... tests/test.i"
 	@echo "... tests/test.s"
