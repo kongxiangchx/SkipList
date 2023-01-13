@@ -23,7 +23,7 @@ int cnt = 0;
 void fun() {
     uint64_t old = time(0);
     while(time(0)-old <= 1) {
-        int op = 0;
+        int op = rand()%4;
         switch (op)
         {
         case 0:

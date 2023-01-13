@@ -171,12 +171,18 @@ SkipList<K, V>::~SkipList() {
     
 template<class K, class V>
 int SkipList<K, V>::getRandomLevel() {
-    int k = 1;
-    while(rand() % 2) {
-        k++;
+    int level = 0;
+    // 随机数字末尾连续1的个数就是level
+    // int randNum = rand();
+    // while(randNum&1 && level < m_maxLevel) {
+    //     randNum >>= 1;
+    //     level++;
+    // }
+
+    while(rand()%2 && level < m_maxLevel) {
+        level++;
     }
-    k = (k < m_maxLevel) ? k : m_maxLevel;
-    return k;
+    return level;
 }
 
 template<class K, class V>

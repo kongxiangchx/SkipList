@@ -6,6 +6,36 @@
 #include <set>
 #include <unordered_map>
 
+void test() {
+    chx::SkipList<std::string, std::string> skipList(6);
+	skipList.insertNode("jack", "man");
+    skipList.insertNode("rose", "woman");
+    skipList.insertNode("xiaoming", "man");
+    skipList.insertNode("xiaohong", "woman");
+    skipList.insertNode("lihua", "man");
+    skipList.insertNode("honghong", "woman");
+	
+
+    std::cout << "skipList size:" << skipList.size() << std::endl;
+
+    skipList.dumpFile("../store/test_total.kv");
+
+    // skipList.load_file();
+
+    skipList.searchNode("xiaohong");
+    skipList.searchNode("xiaozhang");
+
+
+    skipList.displayList();
+
+    skipList.deleteNode("xiaoming");
+    skipList.deleteNode("xiaozhang");
+
+    std::cout << "skipList size:" << skipList.size() << std::endl;
+
+    skipList.displayList();
+}
+
 void test_string() {
     chx::SkipList<std::string, std::string> skipList(6);
 	skipList.insertNode("name", "jack");
@@ -63,10 +93,11 @@ void test_umap() {
 }
 
 int main() {
-    test_string();
-    test_list();
-    test_uset();
-    test_set();
-    test_umap();
+    test();
+    // test_string();
+    // test_list();
+    // test_uset();
+    // test_set();
+    // test_umap();
     return 0;
 }
