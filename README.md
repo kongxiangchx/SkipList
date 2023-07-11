@@ -9,6 +9,11 @@
 - SkipList可写入文件，也可从文件中加载，因此需要实现SkipList的序列化和反序列化。本项目使用了仿函数的形式实现了五种基础类型与string之间的相互转换。
 - key默认支持string，value默认支持上述五种类型，但是key和value也可以使用int、double、char等数据类型，它们的序列化和反序列化使用了boost中的lexical_cast函数。
 
+## 运行
+> cd build  
+> cmake ..  
+> make  
+> ../bin/*
 
 ## 后续有待优化的部分
 - SkipList在定义时需要指定key和value的类型，也就是说，同一个SkipList只能接收相同类型的KV数据。后续准备使用union或variant来保存value数据，就可以实现不同类型value的存储。

@@ -1,1 +1,0 @@
-/usr/bin/c++   -rdynamic -O3 -ggdb -std=c++11 -Wno-unused-function  -rdynamic CMakeFiles/test.dir/tests/test.cc.o  -o ../bin/test  -lpthread 

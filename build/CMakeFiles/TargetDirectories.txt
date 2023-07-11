@@ -1,5 +1,0 @@
-/home/chx/Git/SkipList/build/CMakeFiles/rebuild_cache.dir
-/home/chx/Git/SkipList/build/CMakeFiles/stress_test.dir
-/home/chx/Git/SkipList/build/CMakeFiles/edit_cache.dir
-/home/chx/Git/SkipList/build/CMakeFiles/test.dir
-/home/chx/Git/SkipList/build/CMakeFiles/test_stl.dir
